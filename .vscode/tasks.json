@@ -4,7 +4,7 @@
     {
       "label": "Installing extensions and dependencies...",
       "type": "shell",
-      "command": "code-server --install-extension mongodb.mongodb-vscode --install-extension ms-python.python --install-extension formulahendry.code-runner && pip install -r requirements.txt",
+      "command": "code-server --install-extension ms-python.python --install-extension ms-toolsai.jupyter --install-extension ms-toolsai.jupyter-keymap --install-extension ms-toolsai.jupyter-renderers --install-extension formulahendry.code-runner && cd /config/workspace/Phishing && pip install -r /config/workspace/Phishing/requirements.txt && export PYTHONPATH=$PYTHONPATH:/config/workspace/Phishing",
       "presentation": {
         "reveal": "always",
         "panel": "new"

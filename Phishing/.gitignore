@@ -1,0 +1,5 @@
+/config/workspace/.vscode
+bin
+build
+dist
+Phishing_Classifier.egg-info

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Machine Learning App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Machine Learning App</h1>
+        <hr>
+        <form id="predict-form" method="post" action="/predict">
+            <div class="form-group">
+                <label for="folderPath">Enter folder path:</label>
+                <input type="text" class="form-control" id="folderPath" name="folderPath" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Predict</button>
+        </form>
+        <br>
+        <form id="train-form" method="post" action="/train">
+            <div class="form-group">
+                <label for="folderPath">Enter folder path:</label>
+                <input type="text" class="form-control" id="folderPath" name="folderPath" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Train</button>
+        </form>
+        <br>
+        <div id="output"></div>
+    </div>
+    <script>
+        $(document).ready(function() {
+            $('#predict-form').submit(function(e) {
+                e.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: "/predict",
+                    contentType: "application/json",
+                    data: JSON.stringify({folderPath: $('#folderPath').val()}),
+                    success: function(response) {
+                        $('#output').text(response);
+                    },
+                    error: function(xhr, status, error) {
+                        $('#output').text(xhr.responseText);
+                    }
+                });
+            });
+            $('#train-form').submit(function(e) {
+                e.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: "/train",
+                    contentType: "application/json",
+                    data: JSON.stringify({folderPath: $('#folderPath').val()}),
+                    success: function(response) {
+                        $('#output').text(response);
+                    },
+                    error: function(xhr, status, error) {
+                        $('#output').text(xhr.responseText);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

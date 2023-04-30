@@ -1,0 +1,4 @@
+2023-04-30/06:42:03		 phising_08012020_120000.csv: Quotes added successfully!!
+2023-04-30/07:13:32		 phising_08012020_120000.csv: Quotes added successfully!!
+2023-04-30/16:04:41		 phising_08012020_120000.csv: Quotes added successfully!!
+2023-04-30/17:09:34		 phising_08012020_120000.csv: Quotes added successfully!!
